@@ -7,7 +7,7 @@ import HelloWorld from '../components/HelloWorld.vue'
 // import { Button } from 'vant'
 export default {
 	components: {
-		HelloWorld,
+		HelloWorld
 		// Button
 	}
 }
