@@ -1,26 +1,20 @@
 <template>
-  <HelloWorld msg="你好" />
+  <h1 v-if="loading">loading...</h1>
+  <img v-if="loaded" :src="result.message" />
 </template>
 <script>
 import { reactive, computed } from "vue";
-import HelloWorld from "../components/HelloWorld.vue";
+import useURLLoader from "../hooks/useURLLoader";
 export default {
-  components: {
-    HelloWorld,
-  },
+  name: "Home",
   setup() {
-    console.log(111);
-
-    const state = reactive({
-      a: 0,
-    });
-
-    function increment() {
-      state.a++;
-    }
+    const { result, loading, loaded, error } = useURLLoader(
+      "https://dog.ceo/api/breeds/image/random"
+    );
     return {
-      state,
-      increment,
+      result,
+      loading,
+      loaded,
     };
   },
 };

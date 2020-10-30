@@ -4,5 +4,8 @@
 <script>
 export default {
   name: "App",
+  setup() {
+    console.log("app");
+  },
 };
 </script>
