@@ -1,21 +1,19 @@
 <template>
-  <h1 v-if="loading">loading...</h1>
-  <img v-if="loaded" :src="result.message" />
+    <div class="home">
+        <img alt="Vue logo" src="../assets/logo.png" />
+        <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    </div>
 </template>
-<script>
-import { reactive, computed } from "vue";
-import useURLLoader from "../hooks/useURLLoader";
-export default {
-  name: "Home",
-  setup() {
-    const { result, loading, loaded, error } = useURLLoader(
-      "https://dog.ceo/api/breeds/image/random"
-    );
-    return {
-      result,
-      loading,
-      loaded,
-    };
-  },
-};
+
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+
+@Options({
+    components: {
+        HelloWorld
+    }
+})
+export default class Home extends Vue {}
 </script>
+ 
